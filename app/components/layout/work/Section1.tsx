@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Section1 = () => {
   return (
-    <div className="h-dvh w-full text-primary mt-10 flex justify-between p-14">
+    <div className="h-vh w-full text-primary mt-10 flex justify-between p-14">
       <div className="w-1/2 h-full flex flex-col justify-between py-20">
         <div className="flex justify-end items-center">
           <p className="text-7xl mr-8 mb-14 self-end">
