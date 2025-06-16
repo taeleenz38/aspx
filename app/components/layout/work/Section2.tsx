@@ -3,10 +3,10 @@ import Image from "next/image";
 
 const Section2 = () => {
   return (
-    <div className="h-dvh w-full text-primary mt-10 flex justify-between p-14">
-      <div className="w-1/2 h-full flex flex-col justify-between py-20">
+    <div className="h-dvh w-full text-primary flex justify-between p-14">
+      <div className="w-1/2 h-full flex flex-col py-24">
         <div className="flex">
-          <p className="text-7xl mr-8 mb-14 font-extralight">
+          <p className="text-7xl mr-8 mb-24 font-extralight">
             For <span className="font-normal">you, </span> For{" "}
             <span className="font-normal">us. </span>
           </p>
