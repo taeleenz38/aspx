@@ -6,7 +6,7 @@ export default function HamburgerToggle() {
   return (
     <button
       onClick={() => setOpen(!open)}
-      className="relative w-8 h-8 flex items-center justify-center"
+      className="relative w-8 h-8 flex items-center justify-center ml-6"
       aria-label="Toggle menu"
     >
       <div
