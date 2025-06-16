@@ -4,7 +4,7 @@ import Image from "next/image";
 const Section1 = () => {
   return (
     <div className="h-vh w-full text-primary mt-10 flex justify-between p-14">
-      <div className="w-1/2 h-full flex flex-col justify-between py-20">
+      <div className="w-1/2 h-full flex flex-col py-24">
         <div className="flex justify-end items-center">
           <p className="text-7xl mr-8 mb-14 self-end">
             Cultivating <span className="font-extralight">Creativity, </span>
@@ -17,7 +17,7 @@ const Section1 = () => {
           alt="mock statistics image"
         />
       </div>
-      <div className="w-1/2 h-full flex flex-col justify-between items-end py-20">
+      <div className="w-1/2 h-full flex flex-col items-end py-24">
         <Image
           src="/mock-video-work.png"
           width={740}
