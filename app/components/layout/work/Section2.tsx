@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Section2 = () => {
   return (
-    <div className="h-dvh w-full text-primary flex justify-between p-14">
+    <div className="h-dvh w-full text-primary flex justify-between gap-10 p-14">
       <div className="w-1/2 h-full flex flex-col py-24">
         <div className="flex">
           <p className="text-7xl mr-8 mb-24 font-extralight">
@@ -13,8 +13,8 @@ const Section2 = () => {
         </div>
         <Image
           src="/mock-illustration.png"
-          width={740}
-          height={740}
+          width={690}
+          height={690}
           alt="mock statistics image"
         />
       </div>
