@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -6,8 +6,16 @@ import HamburgerToggle from "../ui/HamburgerToggle";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 pt-4 pb-24 pl-4 z-20 flex justify-between text-primary items-center h-56 bg-gradient-to-t from-transparent via-white to-white">
-      <Image src="/logo.png" width={110} height={110} alt="logo" />
+    <div className="fixed top-0 left-0 right-0 pt-4 pb-20 pl-4 z-20 flex justify-between text-primary items-center h-52 bg-gradient-to-t from-transparent via-white to-white">
+      <Link href="/">
+        <Image
+          src="/logo.png"
+          width={100}
+          height={100}
+          alt="logo"
+          className="rounded-full"
+        />
+      </Link>
       <div className="flex items-center gap-18 text-3xl pr-8 font-extralight">
         <Link
           href="/"
