@@ -1,30 +1,76 @@
-import React, { useState } from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 export default function HamburgerToggle() {
   const [open, setOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !(menuRef.current as HTMLElement).contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
 
   return (
-    <button
-      onClick={() => setOpen(!open)}
-      className="relative w-8 h-8 flex items-center justify-center ml-6"
-      aria-label="Toggle menu"
-    >
-      <div
-        className={`space-y-6 transition-opacity duration-300 ${
-          open ? "opacity-0" : "opacity-100"
-        }`}
+    <div className="relative ml-6" ref={menuRef}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-16 h-16 flex flex-col justify-between items-center z-50 hover:cursor-pointer"
+        aria-label="Toggle menu"
       >
-        <span className="block w-16 h-1 bg-black"></span>
-        <span className="block w-16 h-1 bg-black"></span>
-        <span className="block w-16 h-1 bg-black"></span>
-      </div>
+        {/* Hamburger icon */}
+        <div
+          className={`space-y-6 transition-opacity duration-300 ${
+            open ? "opacity-0" : "opacity-100"
+          }`}
+        >
+          <span className="block w-16 h-1 bg-black"></span>
+          <span className="block w-16 h-1 bg-black"></span>
+          <span className="block w-16 h-1 bg-black"></span>
+        </div>
+      </button>
 
-      <span
-        className={`absolute top-1/2 right-0 w-1 h-16 bg-black rounded transition-opacity duration-300 ${
-          open ? "opacity-100" : "opacity-0"
-        }`}
-        style={{ right: "-1.5rem", transform: "translateY(-50%)" }}
-      ></span>
-    </button>
+      <div
+        className={`${
+          open
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        } duration-200 absolute top-0 right-0 mt-4 flex flex-col items-end text-3xl font-extralight gap-4 border-r-[3px] pr-3 pb-3 pl-48 bg-gradient-to-r from-transparent via-white to-white z-30`}
+      >
+        <Link
+          href="/about"
+          className="hover:underline decoration-[1px] underline-offset-[12px]"
+        >
+          About
+        </Link>
+        <Link
+          href="/submit"
+          className="hover:underline decoration-[1px] underline-offset-[12px]"
+        >
+          Submit
+        </Link>
+        <Link
+          href="/contact"
+          className="hover:underline decoration-[1px] underline-offset-[12px]"
+        >
+          Contact
+        </Link>
+      </div>
+    </div>
   );
 }

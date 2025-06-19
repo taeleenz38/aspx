@@ -4,7 +4,7 @@ import Section3 from "./components/layout/work/Section3";
 
 export default function Home() {
   return (
-    <div className="w-[95%] mx-auto">
+    <div className="w-[92%] mx-auto">
       <Section1 />
       <Section2 />
       <Section3 />

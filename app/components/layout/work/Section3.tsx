@@ -23,7 +23,7 @@ const Section3 = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   return (
-    <div className="h-screen w-full text-primary flex justify-between gap-10 p-14">
+    <div className="h-screen w-full text-primary flex justify-between gap-10 py-14 px-4">
       <div className="w-[85%] mt-28">
         <p className="text-7xl mr-8 font-extralight">Portfolio.</p>
       </div>
