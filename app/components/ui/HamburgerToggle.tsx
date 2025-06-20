@@ -50,7 +50,7 @@ export default function HamburgerToggle() {
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        } duration-200 absolute top-0 right-0 mt-4 flex flex-col items-end text-3xl font-extralight gap-4 border-r-[3px] pr-3 pb-3 pl-48 bg-gradient-to-r from-transparent via-white to-white z-30`}
+        } duration-200 absolute top-0 right-0 mt-4 flex flex-col items-end text-3xl font-extralight gap-4 border-r-[3px] px-3 pb-3 bg-gradient-to-tr from-transparent via-white to-white z-30 rounded-l-xl`}
       >
         <Link
           href="/about"
