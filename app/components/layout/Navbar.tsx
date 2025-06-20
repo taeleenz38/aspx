@@ -6,7 +6,7 @@ import HamburgerToggle from "../ui/HamburgerToggle";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 pt-4 pb-20 pl-6 z-20 flex justify-between text-primary items-center h-52 bg-gradient-to-t from-transparent via-white to-white">
+    <div className="fixed top-0 left-0 right-0 pt-4 pb-14 pl-6 z-20 flex justify-between text-primary items-center bg-[linear-gradient(to_top,_transparent_0%,_white_23%,_white_100%)]">
       <Link href="/">
         <Image
           src="/logo.png"
