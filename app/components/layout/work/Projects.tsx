@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion as MotionComponent } from "framer-motion";
 
 const projectData = [
   {
@@ -42,17 +45,39 @@ const Divider = () => (
   </div>
 );
 
-const ProjectItem = ({ image, title, description }: typeof projectData[0]) => (
-    <div className="flex gap-4">
-      <div className="w-1/2">
-        <img src={image} className="w-full h-auto object-contain" alt={title} />
-      </div>
-      <div className="w-1/2 flex flex-col gap-2 pr-10">
-        <h2 className="text-3xl font-medium m-0 leading-none">{title}</h2>
-        <p className="font-extralight text-xl">{description}</p>
+const ProjectItem = ({
+  image,
+  title,
+  description,
+}: (typeof projectData)[0]) => (
+  <MotionComponent.div
+    className="flex gap-4"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    <div className="w-1/2 relative group">
+      <img src={image} className="w-full h-auto object-contain" alt={title} />
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center"
+        style={{
+          background:
+            "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 65%)",
+        }}
+      >
+        <p className="text-white text-2xl font-extralight mb-16 hover:cursor-pointer hover:font-light duration-200">
+          View More
+        </p>
       </div>
     </div>
-  );
+
+    <div className="w-1/2 flex flex-col gap-2 pr-10">
+      <h2 className="text-3xl font-medium m-0 leading-none">{title}</h2>
+      <p className="font-extralight text-xl">{description}</p>
+    </div>
+  </MotionComponent.div>
+);
 
 const Projects = () => {
   return (

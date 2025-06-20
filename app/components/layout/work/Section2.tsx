@@ -1,14 +1,23 @@
+"use client";
+
 import React from "react";
+import { motion as MotionComponent } from "framer-motion";
 
 const Section2 = () => {
   return (
     <div className="h-screen w-full text-primary flex justify-between items-center gap-10 py-14 px-4">
       <div className="w-1/2 h-full flex flex-col items-end py-24">
         <div className="flex self-start">
-          <p className="text-7xl mr-8 mb-24 font-extralight">
+          <MotionComponent.p
+            className="text-7xl mr-8 mb-24 font-extralight"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 1.5 }}
+          >
             For <span className="font-normal">you, </span> For{" "}
             <span className="font-normal">us. </span>
-          </p>
+          </MotionComponent.p>
         </div>
         <div className="w-full">
           <img
