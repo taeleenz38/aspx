@@ -24,10 +24,10 @@ const Section3 = () => {
 
   return (
     <div className="h-screen w-full text-primary flex justify-between gap-10 py-14 px-4">
-      <div className="w-[85%] mt-28">
+      <div className="w-[85%] mt-36">
         <p className="text-7xl mr-8 font-extralight">Portfolio.</p>
       </div>
-      <div className="w-[15%] mt-28 flex flex-col font-extralight text-2xl text-right">
+      <div className="w-[15%] mt-36 flex flex-col font-extralight text-2xl text-right">
         {portfolioCategories.map((category, index) => (
           <Button
             key={index}

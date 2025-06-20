@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 
 const Section2 = () => {
   return (
@@ -12,11 +11,8 @@ const Section2 = () => {
           </p>
         </div>
         <div className="w-full">
-          <Image
-            src="/mock-illustration.png"
-            alt="mock statistics image"
-            width={700} // native width of your image
-            height={700} // native height of your image
+          <img
+            src="/mock-illustration.gif"
             className="w-full h-auto object-contain pr-10"
           />
         </div>
