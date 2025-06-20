@@ -55,18 +55,18 @@ const ProjectItem = ({
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
-    transition={{ duration: 0.8, ease: "easeOut" }}
+    transition={{ duration: 0.5, ease: "easeOut" }}
   >
     <div className="w-1/2 relative group">
       <img src={image} className="w-full h-auto object-contain" alt={title} />
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center"
+        className="h-1/2 absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 self-end flex items-center justify-center"
         style={{
           background:
-            "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 25%, rgba(0,0,0,0) 65%)",
+            "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%)",
         }}
       >
-        <p className="text-white text-2xl font-extralight mb-16 hover:cursor-pointer hover:font-light duration-200">
+        <p className="text-white text-2xl font-extralight hover:cursor-pointer hover:font-light duration-200">
           View More
         </p>
       </div>
