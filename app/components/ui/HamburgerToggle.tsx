@@ -27,7 +27,7 @@ export default function HamburgerToggle() {
   }, [open]);
 
   return (
-    <div className="relative ml-6" ref={menuRef}>
+    <div className="relative ml-6 mr-3" ref={menuRef}>
       <button
         onClick={() => setOpen(!open)}
         className="w-16 h-16 flex flex-col justify-between items-center z-50 hover:cursor-pointer"
