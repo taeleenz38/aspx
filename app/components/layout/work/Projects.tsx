@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import { motion as MotionComponent } from "framer-motion";
 
 const projectData = [
   {
@@ -47,12 +50,15 @@ const ProjectItem = ({
   title,
   description,
 }: (typeof projectData)[0]) => (
-  <div className="flex gap-4">
-    {/* Image Container */}
-    <div className="w-1/2 relative group overflow-hidden">
+  <MotionComponent.div
+    className="flex gap-4"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.3 }}
+    transition={{ duration: 0.8, ease: "easeOut" }}
+  >
+    <div className="w-1/2 relative group">
       <img src={image} className="w-full h-auto object-contain" alt={title} />
-
-      {/* Custom Gradient Overlay */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center"
         style={{
@@ -66,12 +72,11 @@ const ProjectItem = ({
       </div>
     </div>
 
-    {/* Text Content */}
     <div className="w-1/2 flex flex-col gap-2 pr-10">
       <h2 className="text-3xl font-medium m-0 leading-none">{title}</h2>
       <p className="font-extralight text-xl">{description}</p>
     </div>
-  </div>
+  </MotionComponent.div>
 );
 
 const Projects = () => {
