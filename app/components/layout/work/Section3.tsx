@@ -1,48 +1,26 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import Button from "../../ui/Button";
+import SortToggle from "../../ui/SortToggle";
+import Projects from "./Projects";
+import ProjectsSideBar from "../../ui/ProjectsSideBar";
 
 const Section3 = () => {
-  const portfolioCategories = [
-    "All",
-    "Development",
-    "Artists",
-    "Designers",
-    "Creators",
-    "Photographers",
-    "Videographers",
-    "Production",
-    "Music Videos",
-    "Social Content",
-    "Campaigns",
-    "Editorials",
-    "Publications",
-    "Manufacturing",
-  ];
-
   const [activeCategory, setActiveCategory] = useState<string>("All");
 
   return (
-    <div className="h-screen w-full text-primary flex justify-between gap-10 py-14 px-4">
-      <div className="w-[85%] mt-36">
-        <p className="text-7xl mr-8 font-extralight">Portfolio.</p>
+    <div className="min-h-screen w-full text-primary flex justify-between gap-4 py-14 px-4">
+      <div className="flex flex-col w-full mt-36">
+        <p className="text-7xl mr-8 font-extralight mb-8">Portfolio.</p>
+        <div className="flex gap-4 mb-8">
+          <p className="font-extralight underline decoration-1 text-2xl underline-offset-[12px]">
+            Sort
+          </p>
+          <SortToggle />
+        </div>
+        <Projects />
       </div>
-      <div className="w-[15%] mt-36 flex flex-col font-extralight text-2xl text-right">
-        {portfolioCategories.map((category, index) => (
-          <Button
-            key={index}
-            text={category}
-            onClick={() => {
-              console.log(`Clicked: ${category}`);
-              setActiveCategory(category);
-            }}
-            className={`mb-2 ${
-              index === 0 ? "underline underline-offset-[10px]" : ""
-            }`}
-            isActive={category === activeCategory}
-          />
-        ))}
-      </div>
+      <ProjectsSideBar />
     </div>
   );
 };
