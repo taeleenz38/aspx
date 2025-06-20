@@ -1,6 +1,5 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 
 const SortToggle = () => {
   const [open, setOpen] = useState(false);
