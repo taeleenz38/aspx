@@ -176,3 +176,27 @@ body {
 .h-screen-minus-28 {
   height: calc(100vh - 7rem);
 }
+
+.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; /* adjust underline position */
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  height: 1px; /* underline thickness */
+  width: 100%;
+  background-color: currentColor;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.link-underline:hover::after,
+.link-underline.active::after {
+  transform: translateX(-50%) scaleX(1);
+}

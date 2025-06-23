@@ -64,10 +64,8 @@ const Navbar = () => {
             <motion.div key={href} variants={itemVariants}>
               <Link
                 href={href}
-                className={`decoration-[1px] underline-offset-[12px] duration-200 ${
-                  isActive
-                    ? "underline opacity-100"
-                    : "hover:underline hover:opacity-80"
+                className={`link-underline duration-200 ${
+                  isActive ? "active" : ""
                 }`}
               >
                 {label}
