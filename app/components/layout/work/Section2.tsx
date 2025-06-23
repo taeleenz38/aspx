@@ -5,7 +5,7 @@ import { motion as MotionComponent } from "framer-motion";
 
 const Section2 = () => {
   return (
-    <div className="h-screen w-full text-primary flex justify-between items-center gap-10 py-14 px-4">
+    <div className="min-h-screen w-full text-primary flex justify-between items-center gap-10 py-14 px-4">
       <div className="w-1/2 h-full flex flex-col items-end py-24">
         <div className="flex self-start">
           <MotionComponent.p
