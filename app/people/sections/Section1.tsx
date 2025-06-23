@@ -19,7 +19,9 @@ const Section1 = () => {
             This is <span className="font-normal">Us.</span>
           </MotionComponent.p>
         </div>
-        <PeopleCarousel />
+        <div className="h-164">
+          <PeopleCarousel />
+        </div>
       </div>
     </div>
   );
