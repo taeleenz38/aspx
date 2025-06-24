@@ -32,6 +32,14 @@ const mockPeople = [
     img: "/mock-portrait-9.jpg",
     desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
   },
+  {
+    img: "/mock-portrait-2.jpg",
+    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+  },
+  {
+    img: "/mock-portrait-10.webp",
+    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+  },
 ];
 
 const PeopleCarousel = () => {
