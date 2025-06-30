@@ -47,7 +47,7 @@ const PeopleCarousel = () => {
   const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
 
   return (
-    <Carousel className="w-full h-110 2xl:h-180 hover:cursor-grab" ref={ref}>
+    <Carousel className="w-full xl:h-120 hover:cursor-grab" ref={ref}>
       <CarouselContent className="-ml-4 h-full">
         {mockPeople.map((person, index) => (
           <CarouselItem
@@ -60,7 +60,7 @@ const PeopleCarousel = () => {
               transition={{ duration: 0.4, delay: index * 0.2 }}
               className="w-full"
             >
-              <div className="h-110 2xl:h-180 overflow-hidden mb-4 rounded-xl shadow">
+              <div className="xl:h-120 overflow-hidden mb-4 rounded-xl shadow">
                 <img
                   src={person.img}
                   alt={`Portrait ${index + 1}`}
