@@ -6,7 +6,7 @@ import PeopleCarousel from "@/app/components/ui/PeopleCarousel";
 
 const Section1 = () => {
   return (
-    <div className="h-screen w-[88%] text-primary gap-10 py-24 px-4">
+    <div className="h-screen w-[85%] text-primary gap-10 py-24 px-4">
       <div className="h-full flex flex-col py-14">
         <div className="flex mb-4">
           <MotionComponent.p

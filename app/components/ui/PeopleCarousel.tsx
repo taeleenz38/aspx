@@ -64,7 +64,7 @@ const PeopleCarousel = () => {
                 <img
                   src={person.img}
                   alt={`Portrait ${index + 1}`}
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-cover rounded-xl filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
               <p className="text-lg font-extralight text-center px-4 mt-4">
