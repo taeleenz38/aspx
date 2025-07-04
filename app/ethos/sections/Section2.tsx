@@ -18,7 +18,7 @@ const Section2 = () => {
         />
       </div>
       <p className="font-extralight text-5xl text-right">
-        We don’t sign artists.
+        We don&apos;t sign artists.
         <span className="font-normal ml-4">We Invest in Humans.</span>
       </p>
     </div>
