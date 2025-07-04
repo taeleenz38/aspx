@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
+// import { Playfair_Display } from "next/font/google";
 import Navbar from "./components/layout/Navbar";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: "swap",
-});
+// const playfair = Playfair_Display({
+//   variable: "--font-playfair",
+//   subsets: ["latin"],
+//   display: "swap",
+// });
 
 export const metadata: Metadata = {
   title: "ASPX",
@@ -21,7 +21,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${playfair.variable} antialiased`}>
+      <body
+        className="antialiased"
+        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
+      >
         <Navbar />
         {children}
       </body>
