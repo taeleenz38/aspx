@@ -35,7 +35,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 pt-4 pb-14 pl-6 z-20 flex justify-between text-primary items-center bg-[linear-gradient(to_top,_transparent_0%,_white_23%,_white_100%)]">
+    <div className="fixed top-0 left-0 right-0 pt-8 pb-14 pl-8 z-20 flex justify-between text-primary items-center bg-[linear-gradient(to_top,_transparent_0%,_white_23%,_white_100%)]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -44,10 +44,10 @@ const Navbar = () => {
         <Link href="/">
           <Image
             src="/logo.png"
-            width={100}
-            height={100}
+            width={150}
+            height={150}
             alt="logo"
-            className="rounded-full"
+            className=""
           />
         </Link>
       </motion.div>
