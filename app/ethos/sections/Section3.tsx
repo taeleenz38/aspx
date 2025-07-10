@@ -2,7 +2,7 @@ import React from "react";
 
 const Section3 = () => {
   return (
-    <div className="min-h-screen text-black pt-40 pb-14">
+    <div className="min-h-screen text-black pt-36 pb-14">
       <h1 className="text-7xl text-right font-extralight">
         We Don&apos;t Follow the Script.
       </h1>
