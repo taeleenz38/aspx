@@ -22,7 +22,7 @@ const Section7 = () => {
         </div>
         {/* Vertical Divider */}
         <div className="w-1 bg-black h-90 mx-24" />{" "}
-        <p className="text-7xl w-150">Artist = Partner</p>
+        <p className="text-7xl w-120">Artist = Partner</p>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ import Section8 from "./sections/Section8";
 
 const Ethos = () => {
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="w-[85%] mx-auto">
       <Section1 />
       <Section2 />
       <Section3 />
