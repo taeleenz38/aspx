@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-// import { Playfair_Display } from "next/font/google";
+import { Work_Sans } from "next/font/google";
 import Navbar from "./components/layout/Navbar";
 import "./globals.css";
-
-// const playfair = Playfair_Display({
-//   variable: "--font-playfair",
-//   subsets: ["latin"],
-//   display: "swap",
-// });
 
 export const metadata: Metadata = {
   title: "ASPX",
   description: "ASPX Group",
 };
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700"],
+  variable: "--font-work-sans",
+});
 
 export default function RootLayout({
   children,
@@ -21,10 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className="antialiased"
-        style={{ fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif' }}
-      >
+      <body className={`antialiased ${workSans.variable}`}>
         <Navbar />
         {children}
       </body>

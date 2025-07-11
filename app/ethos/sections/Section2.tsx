@@ -11,10 +11,10 @@ const Section2 = () => {
           A holistic, artist-first model for true creative development.
         </p>
       </div>
-      <div className="w-full">
+      <div className="w-full flex justify-center">
         <img
           src="/ethos-1.png"
-          className="w-180 h-auto object-contain ml-44 mt-4"
+          className="w-180 h-auto object-contain mt-4 mr-28"
         />
       </div>
       <p className="font-extralight text-5xl text-right">
