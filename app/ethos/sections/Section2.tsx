@@ -1,86 +1,31 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { motion as MotionComponent } from "framer-motion";
-
-const TYPING_INTERVAL = 40;
+import { useTypingOnView } from "../../../hooks/useTypingOnView";
 
 const Section2: React.FC = () => {
-  const fullTitle = "Not a Label or Agency, a Partner in Purpose.";
-  const fullSubtitle =
-    "A holistic, artist-first model for true creative development.";
-
-  const [title, setTitle] = useState("");
-  const [subtitle, setSubtitle] = useState("");
-  const [hasStarted, setHasStarted] = useState(false);
-
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-        }
-      },
-      {
-        root: null, // viewport
-        rootMargin: "0px",
-        threshold: 0.1, // Trigger when 10% visible
-      }
-    );
-
-    observer.observe(containerRef.current);
-
-    return () => {
-      if (containerRef.current) observer.unobserve(containerRef.current);
-    };
-  }, [hasStarted]);
-
-  useEffect(() => {
-    if (!hasStarted) return;
-
-    let isMounted = true;
-
-    const typeText = (
-      fullText: string,
-      setText: React.Dispatch<React.SetStateAction<string>>,
-      index = 0,
-      callback?: () => void
-    ) => {
-      if (!isMounted) return;
-
-      if (index < fullText.length) {
-        setText((prev) => prev + fullText[index]);
-        setTimeout(
-          () => typeText(fullText, setText, index + 1, callback),
-          TYPING_INTERVAL
-        );
-      } else {
-        if (callback) callback();
-      }
-    };
-
-    typeText(fullTitle, setTitle, 0, () => {
-      typeText(fullSubtitle, setSubtitle);
-    });
-
-    return () => {
-      isMounted = false;
-    };
-  }, [hasStarted]);
+  const { text: title, containerRef: titleRef } = useTypingOnView(
+    "Not a Label or Agency, a Partner in Purpose."
+  );
+  const { text: subtitle, containerRef: subtitleRef } = useTypingOnView(
+    "A holistic, artist-first model for true creative development."
+  );
 
   return (
     <div
-      ref={containerRef}
       className="min-h-screen text-black flex flex-col justify-between pt-40 pb-24"
     >
       <div className="flex flex-col">
-        <h1 className="italic font-normal text-7xl mb-4 leading-tight whitespace-pre-wrap">
+        <h1
+          ref={titleRef}
+          className="italic font-normal text-7xl mb-4 leading-tight whitespace-pre-wrap"
+        >
           {title}
         </h1>
-        <p className="font-extralight text-5xl whitespace-pre-wrap">
+        <p
+          ref={subtitleRef}
+          className="font-extralight text-5xl whitespace-pre-wrap"
+        >
           {subtitle}
         </p>
       </div>
