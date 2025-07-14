@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion, easeOut } from "framer-motion";
-import DustParticles from "../../components/animations/DustParticles";
+
 const dustVariant = {
   hidden: {
     opacity: 0,
