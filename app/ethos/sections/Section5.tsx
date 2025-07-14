@@ -2,7 +2,7 @@ import React from "react";
 
 const Section5 = () => {
   return (
-    <div className="min-h-screen text-black pt-36 pb-14">
+    <div className="min-h-screen text-black flex flex-col justify-center pt-36 pb-14">
       <div className="font-extralight text-7xl">
         <h1>Our Individualized Support Model, </h1>
         <h2 className="italic mt-3">building an ecosystem for success.</h2>
