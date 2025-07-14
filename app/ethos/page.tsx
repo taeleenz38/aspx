@@ -10,15 +10,31 @@ import Section8 from "./sections/Section8";
 
 const Ethos = () => {
   return (
-    <div className="w-[85%] mx-auto">
-      <Section1 />
-      <Section2 />
-      <Section3 />
-      <Section4 />
-      <Section5 />
-      <Section6 />
-      <Section7 />
-      <Section8 />
+    <div className="h-screen w-[85%] mx-auto overflow-y-scroll snap-y snap-mandatory scroll-smooth hide-scrollbar">
+      <section className="snap-start">
+        <Section1 />
+      </section>
+      <section className="snap-start">
+        <Section2 />
+      </section>
+      <section className="snap-start">
+        <Section3 />
+      </section>
+      <section className="snap-start">
+        <Section4 />
+      </section>
+      <section className="snap-start">
+        <Section5 />
+      </section>
+      <section className="snap-start">
+        <Section6 />
+      </section>
+      <section className="snap-start">
+        <Section7 />
+      </section>
+      <section className="snap-start">
+        <Section8 />
+      </section>
     </div>
   );
 };

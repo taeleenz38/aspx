@@ -2,7 +2,7 @@ import React from "react";
 
 const Section7 = () => {
   return (
-    <div className="min-h-screen text-black pt-24 pb-14 flex flex-col items-center">
+    <div className="min-h-screen text-black pt-36 pb-14 flex flex-col items-center">
       <h1 className="font-extralight text-7xl">
         Working <span className="italic">With</span> the Artist, Not{" "}
         <span className="italic">off of</span> Them

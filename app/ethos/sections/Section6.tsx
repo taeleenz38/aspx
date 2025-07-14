@@ -2,7 +2,7 @@ import React from "react";
 
 const Section6 = () => {
   return (
-    <div className="min-h-screen text-black pt-24 pb-14">
+    <div className="min-h-screen text-black pt-36 pb-14">
       <div className="text-7xl">
         <h1 className="font-extralight mb-3">Reimagining the deal.</h1>
         <h2>- We take the risk, you take the Freedom.</h2>
