@@ -25,18 +25,18 @@ const Section3 = () => {
     <div className="min-h-screen text-black flex flex-col justify-center pt-36 pb-14">
       <h1
         ref={containerRef}
-        className="text-7xl text-right font-extralight whitespace-pre-wrap"
+        className="text-7xl text-right font-extralight"
       >
         {header}
       </h1>
 
       <div className="flex justify-between mt-4 font-extralight">
         {/* Left side */}
-        <div className="w-[35%] flex flex-col">
+        <div className="w-[35%] flex flex-col overflow-visible">
           <m.p
             className="text-black text-5xl mb-4 text-[5.3rem] font-extralight"
-            initial={{ opacity: 0, x: -100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -25 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 0.75 }}
           >
