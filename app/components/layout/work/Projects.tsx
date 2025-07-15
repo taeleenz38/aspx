@@ -1,41 +1,50 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion as MotionComponent } from "framer-motion";
-
+import ProjectsCarousel from "../../ui/ProjectsCarousel";
 const projectData = [
   {
-    image: "/mock-project-3.jpg",
+    category: "videographers",
+    thumbnail: "/mock-project-3.jpg",
+    images: [
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+    ],
     title: "Title 1",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam
-    culpa neque pariatur quasi recusandae, sapiente aut! Et earum quod
-    autem dicta, debitis fuga fugiat iusto ab voluptate iste tenetur
-    dolorum? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    Totam pariatur atque minima quos possimus eligendi, cumque facilis
-    dicta numquam quaerat nemo odio officiis dolores quia beatae illo
-    quibusdam soluta vero?`,
+    description: "Sample description for videographers...",
   },
   {
-    image: "/mock-project-2.png",
+    category: "photographers",
+    thumbnail: "/mock-project-2.png",
+    images: [
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+    ],
     title: "Title 2",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam
-    culpa neque pariatur quasi recusandae, sapiente aut! Et earum quod
-    autem dicta, debitis fuga fugiat iusto ab voluptate iste tenetur
-    dolorum? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    Totam pariatur atque minima quos possimus eligendi, cumque facilis
-    dicta numquam quaerat nemo odio officiis dolores quia beatae illo
-    quibusdam soluta vero?`,
+    description: "Sample description for photographers...",
   },
   {
-    image: "/mock-project-1.jpg",
+    category: "artists",
+    thumbnail: "/mock-project-1.jpg",
+    images: [
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+      "/mock-project-1.jpg",
+    ],
     title: "Title 3",
-    description: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsam
-    culpa neque pariatur quasi recusandae, sapiente aut! Et earum quod
-    autem dicta, debitis fuga fugiat iusto ab voluptate iste tenetur
-    dolorum? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-    Totam pariatur atque minima quos possimus eligendi, cumque facilis
-    dicta numquam quaerat nemo odio officiis dolores quia beatae illo
-    quibusdam soluta vero?`,
+    description: "Sample description for artists...",
   },
 ];
 
@@ -46,10 +55,11 @@ const Divider = () => (
 );
 
 const ProjectItem = ({
-  image,
+  thumbnail,
   title,
   description,
-}: (typeof projectData)[0]) => (
+  onViewMore,
+}: (typeof projectData)[0] & { onViewMore: () => void }) => (
   <MotionComponent.div
     className="flex gap-4"
     initial={{ opacity: 0, y: 30 }}
@@ -58,7 +68,11 @@ const ProjectItem = ({
     transition={{ duration: 0.5, ease: "easeOut" }}
   >
     <div className="w-1/2 relative group">
-      <img src={image} className="w-full h-auto object-contain" alt={title} />
+      <img
+        src={thumbnail}
+        className="w-full h-auto object-contain"
+        alt={title}
+      />
       <div
         className="h-1/2 absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 self-end flex items-center justify-center"
         style={{
@@ -66,7 +80,10 @@ const ProjectItem = ({
             "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%)",
         }}
       >
-        <p className="text-white text-2xl font-extralight hover:cursor-pointer hover:font-light duration-200">
+        <p
+          onClick={onViewMore}
+          className="text-white text-2xl font-extralight hover:cursor-pointer hover:font-light duration-200"
+        >
           View More
         </p>
       </div>
@@ -79,15 +96,35 @@ const ProjectItem = ({
   </MotionComponent.div>
 );
 
-const Projects = () => {
+const Projects = ({ activeCategory }: { activeCategory: string }) => {
+  const [selectedImages, setSelectedImages] = useState<string[] | null>(null);
+
+  const filteredProjects =
+    activeCategory === "All"
+      ? projectData
+      : projectData.filter(
+          (project) =>
+            project.category.toLowerCase() === activeCategory.toLowerCase()
+        );
+
   return (
     <>
-      {projectData.map((project, index) => (
+      {filteredProjects.map((project, index) => (
         <React.Fragment key={index}>
-          <ProjectItem {...project} />
-          {index < projectData.length - 1 && <Divider />}
+          <ProjectItem
+            {...project}
+            onViewMore={() => setSelectedImages(project.images)}
+          />
+          {index < filteredProjects.length - 1 && <Divider />}
         </React.Fragment>
       ))}
+
+      {selectedImages && (
+        <ProjectsCarousel
+          images={selectedImages}
+          onClose={() => setSelectedImages(null)}
+        />
+      )}
     </>
   );
 };
