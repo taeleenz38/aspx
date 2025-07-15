@@ -45,7 +45,7 @@ const Section3 = () => {
 
           <div className="w-full">
             <img
-              src="/mock-core-values.png"
+              src="/mock-core-values.webp"
               className="w-4/5 h-auto object-contain mt-4"
               alt="Core values"
             />

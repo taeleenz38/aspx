@@ -58,12 +58,12 @@ export default function HamburgerToggle() {
         >
           About
         </Link>
-        <Link
+        {/* <Link
           href="/submit"
           className="hover:underline decoration-[1px] underline-offset-[12px]"
         >
           Submit
-        </Link>
+        </Link> */}
         <Link
           href="/contact"
           className="hover:underline decoration-[1px] underline-offset-[12px]"

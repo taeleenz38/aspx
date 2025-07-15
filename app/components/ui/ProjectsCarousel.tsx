@@ -14,10 +14,7 @@ interface ProjectsCarouselProps {
   onClose: () => void;
 }
 
-const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({
-  images,
-  onClose,
-}) => {
+const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ images, onClose }) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -29,10 +26,7 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (
-        modalRef.current &&
-        !modalRef.current.contains(event.target as Node)
-      ) {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
         onClose();
       }
     };
