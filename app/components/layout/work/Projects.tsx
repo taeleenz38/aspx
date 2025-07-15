@@ -11,6 +11,7 @@ const ProjectItem = ({
   title,
   description,
   onViewMore,
+  url,
 }: (typeof projectData)[0] & { onViewMore: () => void }) => (
   <MotionComponent.div
     className="flex gap-4 mb-14"
@@ -35,12 +36,23 @@ const ProjectItem = ({
             "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%)",
         }}
       >
-        <p
-          onClick={onViewMore}
-          className="text-white text-2xl font-extralight hover:cursor-pointer hover:font-light duration-200"
-        >
-          View More
-        </p>
+        {url ? (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white text-2xl font-extralight hover:cursor-pointer hover:scale-105 hover:font-light duration-200"
+          >
+            View Video
+          </a>
+        ) : (
+          <p
+            onClick={onViewMore}
+            className="text-white text-2xl font-extralight hover:cursor-pointer hover:scale-105 hover:font-light duration-200"
+          >
+            View More
+          </p>
+        )}
       </div>
     </div>
 
@@ -88,7 +100,7 @@ const Projects = ({
         <React.Fragment key={index}>
           <ProjectItem
             {...project}
-            onViewMore={() => setSelectedImages(project.images)}
+            onViewMore={() => setSelectedImages(project.images ?? null)}
           />
           {index < sortedProjects.length - 1}
         </React.Fragment>
@@ -103,6 +115,5 @@ const Projects = ({
     </>
   );
 };
-
 
 export default Projects;
