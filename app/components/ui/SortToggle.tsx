@@ -1,7 +1,13 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 
-const SortToggle = () => {
+const SortToggle = ({
+  sortOrder,
+  toggleSortOrder,
+}: {
+  sortOrder: "asc" | "desc";
+  toggleSortOrder: () => void;
+}) => {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -30,9 +36,12 @@ const SortToggle = () => {
   return (
     <div className="relative ml-6 mt-1" ref={menuRef}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={() => {
+          toggleSortOrder();
+          setOpen(!open);
+        }}
         className="flex flex-col justify-between items-center z-50 hover:cursor-pointer"
-        aria-label="Toggle menu"
+        aria-label="Toggle sort order"
       >
         <div className="space-y-3 flex flex-col items-center transition-all duration-300">
           {bars.map((width, idx) => (
@@ -42,6 +51,9 @@ const SortToggle = () => {
             />
           ))}
         </div>
+        <p className="text-xs mt-2 font-light text-center">
+          {sortOrder === "asc" ? "Oldest first" : "Latest first"}
+        </p>
       </button>
     </div>
   );

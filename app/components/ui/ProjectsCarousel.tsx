@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
+import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +15,10 @@ interface ProjectsCarouselProps {
   onClose: () => void;
 }
 
-const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ images, onClose }) => {
+const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({
+  images,
+  onClose,
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,7 +30,10 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ images, onClose }) 
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
         onClose();
       }
     };
@@ -52,11 +59,16 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ images, onClose }) 
                 key={idx}
                 className="basis-1 lg:basis-1/2 pl-4 flex items-center justify-center"
               >
-                <img
-                  src={src}
-                  alt={`Project Image ${idx + 1}`}
-                  className="max-h-[60vh] w-full object-contain rounded-lg"
-                />
+                <div className="aspect-square w-full max-h-[60vh] relative">
+                  <Image
+                    src={src}
+                    alt={`Project Image ${idx + 1}`}
+                    width={1000}
+                    height={1000}
+                    className="w-full h-full object-contain rounded-lg"
+                    loading="lazy"
+                  />
+                </div>
               </CarouselItem>
             ))}
           </CarouselContent>

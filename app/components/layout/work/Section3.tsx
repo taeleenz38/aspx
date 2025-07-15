@@ -6,6 +6,7 @@ import ProjectsSideBar from "../../ui/ProjectsSideBar";
 
 const Section3 = () => {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("desc");
 
   return (
     <div className="min-h-screen w-full text-primary flex justify-between gap-4 py-14 px-4">
@@ -15,9 +16,14 @@ const Section3 = () => {
           <p className="font-extralight underline decoration-1 text-2xl underline-offset-[12px]">
             Sort
           </p>
-          <SortToggle />
+          <SortToggle
+            sortOrder={sortOrder}
+            toggleSortOrder={() =>
+              setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
+            }
+          />{" "}
         </div>
-        <Projects activeCategory={activeCategory} />
+        <Projects activeCategory={activeCategory} sortOrder={sortOrder} />
       </div>
       <ProjectsSideBar
         activeCategory={activeCategory}
