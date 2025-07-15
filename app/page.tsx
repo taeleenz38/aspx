@@ -4,7 +4,7 @@ import Section3 from "./components/layout/work/Section3";
 
 export default function Home() {
   return (
-    <div className="w-[90%] mx-auto">
+    <div className="w-[90%] mx-auto overflow-x-visible">
       <Section1 />
       <Section2 />
       <Section3 />
