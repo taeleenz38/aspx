@@ -209,3 +209,9 @@ body {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
+
+[data-slot="carousel-content"],
+[data-slot="carousel-item"],
+[data-slot="carousel-item"] > div {
+  height: 100% !important;
+}
