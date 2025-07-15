@@ -1,10 +1,12 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import SortToggle from "../../ui/SortToggle";
 import Projects from "./Projects";
 import ProjectsSideBar from "../../ui/ProjectsSideBar";
 
 const Section3 = () => {
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+
   return (
     <div className="min-h-screen w-full text-primary flex justify-between gap-4 py-14 px-4">
       <div className="w-[88%] flex flex-col mt-36">
@@ -15,9 +17,12 @@ const Section3 = () => {
           </p>
           <SortToggle />
         </div>
-        <Projects />
+        <Projects activeCategory={activeCategory} />
       </div>
-      <ProjectsSideBar />
+      <ProjectsSideBar
+        activeCategory={activeCategory}
+        setActiveCategory={setActiveCategory}
+      />
     </div>
   );
 };
