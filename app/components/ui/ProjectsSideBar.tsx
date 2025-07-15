@@ -1,39 +1,40 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import Button from "./Button";
 
 const portfolioCategories = [
   "All",
-  "Development",
+  // "Development",
   "Artists",
-  "Designers",
-  "Creators",
+  // "Designers",
+  // "Creators",
   "Photographers",
   "Videographers",
-  "Production",
-  "Music Videos",
+  // "Production",
+  // "Music Videos",
   "Social Content",
-  "Campaigns",
-  "Editorials",
+  // "Campaigns",
+  // "Editorials",
   "Publications",
   "Manufacturing",
 ];
 
-const ProjectsSideBar = () => {
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-
+const ProjectsSideBar = ({
+  activeCategory,
+  setActiveCategory,
+}: {
+  activeCategory: string;
+  setActiveCategory: (category: string) => void;
+}) => {
   return (
     <div className="sticky mt-36 top-44 self-start flex flex-col font-extralight text-2xl text-right">
       {portfolioCategories.map((category, index) => (
         <Button
           key={index}
           text={category}
-          onClick={() => {
-            console.log(`Clicked: ${category}`);
-            setActiveCategory(category);
-          }}
+          onClick={() => setActiveCategory(category)}
           className={`mb-2 ${
-            index === 0 ? "underline underline-offset-[10px]" : ""
+            category === activeCategory ? "underline underline-offset-[10px]" : ""
           }`}
           isActive={category === activeCategory}
         />
