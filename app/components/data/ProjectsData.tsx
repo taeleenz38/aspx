@@ -135,7 +135,7 @@ const projectData = [
     category: "photographers",
     thumbnail: "/photography/personal-projects/stain.JPG",
     images: [],
-    title: "“stain”",
+    title: "“pure”",
     description: ["New York", "2024", "Digital Photography"],
     year: "2023",
   },

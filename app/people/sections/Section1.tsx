@@ -4,7 +4,11 @@ import React from "react";
 import { motion as MotionComponent } from "framer-motion";
 import PeopleCarousel from "@/app/components/ui/PeopleCarousel";
 
-const Section1 = () => {
+interface Props {
+  activeCategory: string;
+}
+
+const Section1: React.FC<Props> = ({ activeCategory }) => {
   return (
     <div className="h-screen w-[85%] text-primary gap-10 py-24 px-4">
       <div className="h-full flex flex-col pt-14">
@@ -19,7 +23,7 @@ const Section1 = () => {
             This is <span className="font-normal">Us.</span>
           </MotionComponent.p>
         </div>
-        <PeopleCarousel />
+        <PeopleCarousel activeCategory={activeCategory} />
       </div>
     </div>
   );

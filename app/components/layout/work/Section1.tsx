@@ -17,7 +17,7 @@ const Section1 = () => {
           Cultivating <span className="font-extralight">Creativity, </span>
         </p>
         <video
-          src="https://pub-bafba8bc960643568753b76423dd6724.r2.dev/krazy.mp4"
+          src="/mvs/pretti-vid.mp4"
           className="w-full h-auto object-contain pr-10"
           autoPlay
           preload="auto"
@@ -34,7 +34,7 @@ const Section1 = () => {
         transition={{ duration: 0.6, delay: 0.7 }}
       >
         <video
-          src="https://pub-bafba8bc960643568753b76423dd6724.r2.dev/dbf0f9ea-e7ac-4d21-adb2-c9e96720baaa-crush.mp4"
+          src="/mvs/toxic-vid.mp4"
           className="w-full h-auto object-contain pl-10"
           autoPlay
           preload="auto"

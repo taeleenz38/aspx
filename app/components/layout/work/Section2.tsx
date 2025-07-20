@@ -20,9 +20,13 @@ const Section2 = () => {
           </MotionComponent.p>
         </div>
         <div className="w-full">
-          <img
-            src="/mock-illustration.gif"
+          <video
+            src="/mvs/bottom-vid.MP4"
             className="w-full h-auto object-contain pr-10"
+            autoPlay
+            preload="auto"
+            muted
+            loop
           />
         </div>
       </div>
@@ -30,11 +34,12 @@ const Section2 = () => {
         <p className="text-7xl mr-8 mb-4 font-extralight">
           What we do & why we do it...
         </p>
-        <p className="text-3xl italic font-extralight">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam vel
-          voluptatum explicabo culpa officiis ipsum quasi nisi quaerat eveniet
-          reprehenderit, cupiditate tenetur quas distinctio a ullam praesentium.
-          Nesciunt, autem labore.
+        <p className="text-3xl italic font-extralight mb-2">
+          We create to connect — artists, ideas, and audiences.
+        </p>
+        <p className="text-3xl italic font-extralight mb-2">
+          Our work lives at the intersection of culture and expression, telling
+          stories that resonate across borders and generations.
         </p>
       </div>
     </div>

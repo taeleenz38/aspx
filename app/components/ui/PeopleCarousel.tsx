@@ -10,50 +10,44 @@ import {
 } from "@/components/ui/carousel";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import peopleData from "../data/PeoplesData";
 
-const mockPeople = [
-  {
-    img: "/mock-portrait-1.png",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "/mock-portrait-3.webp",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "/mock-portrait-7.jpeg",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "/mock-portrait-8.jpg",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "/mock-portrait-9.jpg",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "/mock-portrait-2.jpg",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-  {
-    img: "/mock-portrait-10.webp",
-    desc: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
-  },
-];
+interface Props {
+  activeCategory: string;
+}
 
-const PeopleCarousel = () => {
+interface Person {
+  name: string;
+  title: string;
+  headshot: string;
+  category: string[];
+}
+
+const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+
+  const filteredPeople: Person[] =
+    activeCategory === "All"
+      ? peopleData
+      : peopleData.filter((person: Person) =>
+          person.category
+            .map((c: string) => c.toLowerCase())
+            .includes(activeCategory.toLowerCase())
+        );
 
   return (
     <div className="h-5/6 flex flex-col">
       <Carousel className="w-full h-full hover:cursor-grab flex" ref={ref}>
         <CarouselContent className="-ml-4 h-full">
-          {mockPeople.map((person, index) => (
+          {filteredPeople.map((person: Person, index: number) => (
             <CarouselItem
               key={index}
-              className="lg:basis-1/2 xl:basis-1/3 h-full"
+              className={`h-full ${
+                filteredPeople.length === 1
+                  ? "basis-full"
+                  : "lg:basis-1/2 xl:basis-1/3"
+              }`}
             >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
@@ -63,13 +57,16 @@ const PeopleCarousel = () => {
               >
                 <div className="xl:h-full overflow-hidden mb-4 rounded-xl shadow">
                   <img
-                    src={person.img}
-                    alt={`Portrait ${index + 1}`}
+                    src={person.headshot}
+                    alt={person.name}
                     className="w-full h-full object-cover rounded-xl filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
                 </div>
-                <p className="text-lg font-extralight text-center px-4 mt-4">
-                  {person.desc}
+                <p className="text-2xl font-semibold text-center">
+                  {person.name}
+                </p>
+                <p className="text-lg text-center font-light px-4 mt-1">
+                  {person.title}
                 </p>
               </motion.div>
             </CarouselItem>
