@@ -31,7 +31,7 @@ const SortToggle = ({
     };
   }, [open]);
 
-  const bars = open ? ["w-4", "w-8", "w-12"] : ["w-12", "w-8", "w-4"];
+  const bars = open ? ["w-3 xl:w-4", "w-6 xl:w-8", "w-9 xl:w-12"] : ["w-9 xl:w-12", "w-6 xl:w-8", "w-3 xl:w-4"];
 
   return (
     <div className="relative ml-6 mt-1" ref={menuRef}>
@@ -43,7 +43,7 @@ const SortToggle = ({
         className="flex flex-col justify-between items-center z-50 hover:cursor-pointer"
         aria-label="Toggle sort order"
       >
-        <div className="space-y-3 flex flex-col items-center transition-all duration-300">
+        <div className="space-y-2 md:space-y-3 flex flex-col items-center transition-all duration-300">
           {bars.map((width, idx) => (
             <span
               key={idx}
