@@ -9,7 +9,7 @@ const Section2 = () => {
       <div className="w-1/2 h-full flex flex-col items-end py-24">
         <div className="flex self-start">
           <MotionComponent.p
-            className="text-7xl mr-8 mb-24 font-extralight"
+            className="md:text-5xl xl:text-7xl mr-8 mb-24 font-extralight"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -31,13 +31,13 @@ const Section2 = () => {
         </div>
       </div>
       <div className="w-1/2 h-full flex flex-col py-44 pl-8">
-        <p className="text-7xl mr-8 mb-4 font-extralight">
+        <p className="md:text-5xl xl:text-7xl mr-8 mb-4 font-extralight">
           What we do & why we do it...
         </p>
-        <p className="text-3xl italic font-extralight mb-2">
+        <p className="md:text-xl xl:text-3xl italic font-extralight mb-2">
           We create to connect — artists, ideas, and audiences.
         </p>
-        <p className="text-3xl italic font-extralight mb-2">
+        <p className="md:text-xl xl:text-3xl italic font-extralight mb-2">
           Our work lives at the intersection of culture and expression, telling
           stories that resonate across borders and generations.
         </p>

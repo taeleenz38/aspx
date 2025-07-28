@@ -13,7 +13,7 @@ const Section1 = () => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
       >
-        <p className="text-7xl mb-20 mt-14">
+        <p className="md:text-5xl xl:text-7xl mb-20 mt-14">
           Cultivating <span className="font-extralight">Creativity, </span>
         </p>
         <video
@@ -42,7 +42,7 @@ const Section1 = () => {
           loop
         />
         <div className="mt-20 mb-14 flex items-start self-start">
-          <p className="text-7xl">
+          <p className="md:text-5xl xl:text-7xl">
             Powering <span className="font-extralight">Possibility. </span>
           </p>
         </div>
