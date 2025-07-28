@@ -9,8 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import peopleData from "../data/PeoplesData";
+import { useRef, useState, useEffect } from "react";
 
 interface Props {
   activeCategory: string;
@@ -26,6 +25,28 @@ interface Person {
 const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+  const [peopleData, setPeopleData] = useState<Person[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchPeople = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("/api/people");
+        if (!response.ok) {
+          throw new Error("Failed to fetch people data");
+        }
+        const data = await response.json();
+        setPeopleData(data);
+      } catch (error) {
+        console.error("Error fetching people data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchPeople();
+  }, []);
 
   const filteredPeople: Person[] =
     activeCategory === "All"
@@ -35,6 +56,10 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
             .map((c: string) => c.toLowerCase())
             .includes(activeCategory.toLowerCase())
         );
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="h-5/6 flex flex-col">

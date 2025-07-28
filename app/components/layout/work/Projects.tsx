@@ -1,10 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion as MotionComponent } from "framer-motion";
 import ProjectsCarousel from "../../ui/ProjectsCarousel";
-import projectData from "../../data/ProjectsData";
 import Image from "next/image";
+
+interface Project {
+  category: string;
+  thumbnail: string;
+  images?: string[];
+  title: string;
+  description: string | string[];
+  year: string;
+  url?: string;
+}
 
 const ProjectItem = ({
   thumbnail,
@@ -12,7 +21,7 @@ const ProjectItem = ({
   description,
   onViewMore,
   url,
-}: (typeof projectData)[0] & { onViewMore: () => void }) => (
+}: Project & { onViewMore: () => void }) => (
   <MotionComponent.div
     className="flex gap-4 mb-14"
     initial={{ opacity: 0, y: 30 }}
@@ -24,10 +33,10 @@ const ProjectItem = ({
       <Image
         src={thumbnail}
         alt={title}
-        width={800} // adjust based on your layout
-        height={450} // maintain aspect ratio
+        width={800}
+        height={450}
         className="w-full h-auto aspect-video object-contain"
-        priority={false} // use true for images above the fold
+        priority={false}
       />
       <div
         className="h-1/2 absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 self-end flex items-center justify-center"
@@ -76,7 +85,29 @@ const Projects = ({
   activeCategory: string;
   sortOrder: "asc" | "desc";
 }) => {
+  const [projectData, setProjectData] = useState<Project[]>([]);
   const [selectedImages, setSelectedImages] = useState<string[] | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch("/api/projects");
+        if (!response.ok) {
+          throw new Error("Failed to fetch projects data");
+        }
+        const data = await response.json();
+        setProjectData(data);
+      } catch (error) {
+        console.error("Error fetching projects data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, []);
 
   // Filter by category
   const filteredProjects =
@@ -93,6 +124,10 @@ const Projects = ({
     const yearB = parseInt(b.year);
     return sortOrder === "asc" ? yearA - yearB : yearB - yearA;
   });
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
