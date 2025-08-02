@@ -60,7 +60,7 @@ const ProjectsSideBar = ({
       </MotionComponent.div>
 
       {/* Desktop Sidebar */}
-      <div className="hidden md:block sticky mt-36 top-44 self-start flex flex-col font-extralight text-2xl text-right">
+      <div className="hidden sticky mt-36 top-44 self-start md:flex flex-col font-extralight text-2xl text-right">
         {portfolioCategories.map((category, index) => (
           <Button
             key={index}

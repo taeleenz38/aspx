@@ -12,7 +12,7 @@ interface Project {
   title: string;
   description: string | string[];
   year: string;
-  url?: string;
+  links?: string;
 }
 
 const ProjectItem = ({
@@ -20,16 +20,16 @@ const ProjectItem = ({
   title,
   description,
   onViewMore,
-  url,
+  links,
 }: Project & { onViewMore: () => void }) => (
   <MotionComponent.div
-    className="flex gap-4 mb-14"
+    className="flex flex-col sm:flex-row gap-4 mb-14"
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.3 }}
     transition={{ duration: 0.5, ease: "easeOut" }}
   >
-    <div className="w-1/2 relative group shadow-md p-8">
+    <div className="order-2 sm:order-1 w-full sm:w-1/2 relative group shadow-md sm:p-8 p-4">
       <Image
         src={thumbnail}
         alt={title}
@@ -45,9 +45,9 @@ const ProjectItem = ({
             "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%)",
         }}
       >
-        {url ? (
+        {links ? (
           <a
-            href={url}
+            href={links[0]}
             target="_blank"
             rel="noopener noreferrer"
             className="text-white text-2xl font-extralight hover:cursor-pointer hover:scale-105 hover:font-light duration-200"
@@ -65,9 +65,9 @@ const ProjectItem = ({
       </div>
     </div>
 
-    <div className="w-1/2 flex flex-col gap-2 pr-10">
-      <h2 className="text-3xl font-medium m-0 leading-none">{title}</h2>
-      <div className="font-extralight text-xl flex flex-col gap-2">
+    <div className="order-1 sm:order-2 w-full sm:w-1/2 flex flex-col gap-2 sm:pr-10 pr-4 pl-4 sm:pl-0">
+      <h2 className="text-md md:text-3xl font-medium m-0 leading-none">{title}</h2>
+      <div className="font-extralight text-sm md:text-xl flex flex-col gap-2">
         {Array.isArray(description) ? (
           description.map((line, idx) => <p key={idx}>{line}</p>)
         ) : (
