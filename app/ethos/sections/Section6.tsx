@@ -23,7 +23,7 @@ const dustVariant = {
 
 const Section6 = () => {
   return (
-    <div className="min-h-screen text-black flex flex-col justify-center pt-36 pb-14 overflow-hidden">
+    <div className="h-dvh md:min-h-screen text-black flex flex-col justify-center pt-36 pb-14 overflow-hidden">
       <div className="text-3xl md:text-5xl lg:text-7xl">
         <motion.h1
           className="font-extralight mb-3"

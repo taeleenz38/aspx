@@ -13,7 +13,7 @@ const Section2: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen text-black flex flex-col justify-between pt-40 pb-24"
+      className="h-dvh md:min-h-screen text-black flex flex-col justify-between pt-40 pb-24"
     >
       <div className="flex flex-col">
         <h1

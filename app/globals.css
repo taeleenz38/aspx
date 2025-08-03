@@ -104,11 +104,6 @@ video:focus {
   outline: none !important;
 }
 
-/* Prevent body scroll when hamburger menu is open */
-body.menu-open {
-  overflow: hidden;
-}
-
 .h-screen-minus-28 {
   height: calc(100vh - 7rem);
 }

@@ -5,7 +5,7 @@ import { motion as MotionComponent } from "framer-motion";
 
 const Section4 = () => {
   return (
-    <div className="min-h-screen text-black  pt-36 pb-14 flex flex-col justify-center items-center">
+    <div className="h-dvh md:min-h-screen text-black  pt-36 pb-14 flex flex-col justify-center items-center">
       <MotionComponent.h1
         className="text-3xl md:text-5xl lg:text-7xl font-extralight text-center"
         initial={{ opacity: 0, y: 50 }}
