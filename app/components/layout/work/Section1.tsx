@@ -20,10 +20,14 @@ const Section1 = () => {
           src="https://pub-bafba8bc960643568753b76423dd6724.r2.dev/6380a922-6733-4632-a35b-a6d4ed0d30c3-pretti-vid.mp4"
           className="w-full max-w-full h-auto object-contain px-0 md:pr-10"
           autoPlay
-          preload="auto"
+          preload="metadata"
           muted
+          playsInline
           controls={false}
           loop
+          tabIndex={-1}
+          onFocus={(e) => e.target.blur()}
+          onDoubleClick={(e) => e.preventDefault()}
         />
       </MotionComponent.div>
 
@@ -38,10 +42,14 @@ const Section1 = () => {
           src="https://pub-bafba8bc960643568753b76423dd6724.r2.dev/6d6426dc-eeec-4aa1-b404-d920848e3bbf-toxic-vid.mp4"
           className="w-full max-w-full h-auto object-contain px-0 md:pl-10"
           autoPlay
-          preload="auto"
+          preload="metadata"
           muted
+          playsInline
           controls={false}
           loop
+          tabIndex={-1}
+          onFocus={(e) => e.target.blur()}
+          onDoubleClick={(e) => e.preventDefault()}
         />
         <div className="mt-8 md:mt-20 mb-4 md:mb-14 flex self-center md:items-start md:self-start">
           <p className="text-4xl md:text-5xl xl:text-7xl">
