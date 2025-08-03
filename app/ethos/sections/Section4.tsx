@@ -7,7 +7,7 @@ const Section4 = () => {
   return (
     <div className="min-h-screen text-black  pt-36 pb-14 flex flex-col justify-center items-center">
       <MotionComponent.h1
-        className="text-7xl font-extralight text-center"
+        className="text-3xl md:text-5xl lg:text-7xl font-extralight text-center"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
@@ -17,8 +17,8 @@ const Section4 = () => {
       </MotionComponent.h1>
       <img
         src="/mock-ethos-2.png"
-        className="w-3/4 h-auto object-contain mt-4"
-        alt="Core values"
+        className="w-full md:w-3/4 h-auto object-contain mt-4"
+        alt="Core values" 
       />
     </div>
   );

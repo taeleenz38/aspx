@@ -25,16 +25,16 @@ const Section3 = () => {
     <div className="min-h-screen text-black flex flex-col justify-center pt-36 pb-14">
       <h1
         ref={containerRef}
-        className="text-7xl text-right font-extralight"
+        className="text-3xl md:text-5xl lg:text-7xl text-right font-extralight"
       >
         {header}
       </h1>
 
-      <div className="flex justify-between mt-4 font-extralight">
+      <div className="flex flex-col md:flex-row justify-between mt-4 font-extralight">
         {/* Left side */}
-        <div className="w-[35%] flex flex-col overflow-visible">
+        <div className="w-full md:w-[35%] flex flex-col overflow-visible">
           <m.p
-            className="text-black text-5xl mb-4 text-[5.3rem] font-extralight"
+            className="text-black mb-4 text-2xl md:text-3xl lg:text-5xl font-extralight hidden md:block"
             initial={{ opacity: 0, y: -25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -53,7 +53,7 @@ const Section3 = () => {
         </div>
 
         {/* Right side */}
-        <div className="w-[65%] flex flex-col justify-end text-right text-5xl gap-3">
+        <div className="w-full md:w-[65%] flex flex-col justify-end text-right text-2xl md:text-3xl lg:text-5xl gap-1 md:gap-3">
           {/* Paragraph: Quality over quantity */}
           <m.p
             custom={4}
@@ -67,7 +67,7 @@ const Section3 = () => {
           </m.p>
 
           {/* Bullets group 1 */}
-          <div className="flex flex-col items-end gap-3">
+          <div className="flex flex-col items-end gap-1 md:gap-3">
             {[
               "No cookie-cutter deals.",
               "We fund projects, not trap artists in debt.",
@@ -79,9 +79,9 @@ const Section3 = () => {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.5 }}
                 variants={fadeUpVariant}
-                className="flex items-center justify-end gap-6"
+                className="flex items-center justify-end gap-1 md:gap-6"
               >
-                <span className="w-3 h-3 rounded-full bg-black shrink-0"></span>
+                <span className="w-1 md:w-3 h-1 md:h-3 rounded-full bg-black shrink-0"></span>
                 <p className="text-right">{text}</p>
               </m.div>
             ))}
@@ -106,9 +106,9 @@ const Section3 = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.5 }}
             variants={fadeUpVariant}
-            className="flex items-center justify-end gap-6"
+            className="flex items-center justify-end gap-1 md:gap-6"
           >
-            <span className="w-3 h-3 rounded-full bg-black shrink-0"></span>
+            <span className="w-1 md:w-3 h-1 md:h-3 rounded-full bg-black shrink-0"></span>
             <p className="text-right">
               Creative autonomy isn&apos;t negotiable.
             </p>
