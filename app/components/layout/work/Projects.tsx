@@ -45,7 +45,7 @@ const ProjectItem = ({
             "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, rgba(0,0,0,0) 100%)",
         }}
       >
-        {links ? (
+        {links && links[0] != "noLink" ? (
           <a
             href={links[0]}
             target="_blank"

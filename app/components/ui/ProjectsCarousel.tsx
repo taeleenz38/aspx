@@ -50,14 +50,14 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({
     >
       <div
         ref={modalRef}
-        className="bg-white rounded-xl w-4/5 max-h-[90vh] flex flex-col items-center p-18"
+        className="bg-white rounded-xl w-11/12 md:w-4/5 max-h-[80vh] md:max-h-[90vh] flex flex-col items-center p-10 md:p-18"
       >
         <Carousel className="w-full h-full flex">
           <CarouselContent className="-ml-4 h-full">
             {images.map((src, idx) => (
               <CarouselItem
                 key={idx}
-                className="basis-1 lg:basis-1/2 pl-4 flex items-center justify-center"
+                className="basis-full lg:basis-1/2 pl-4 flex items-center justify-center"
               >
                 <div className="aspect-square w-full max-h-[60vh] relative">
                   <Image
@@ -73,8 +73,8 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({
             ))}
           </CarouselContent>
 
-          <CarouselPrevious className="hover:cursor-pointer hover:bg-black hover:text-white" />
-          <CarouselNext className="hover:cursor-pointer hover:bg-black hover:text-white" />
+          <CarouselPrevious className="hidden md:flex hover:cursor-pointer hover:bg-black hover:text-white" />
+          <CarouselNext className="hidden md:flex hover:cursor-pointer hover:bg-black hover:text-white" />
         </Carousel>
       </div>
     </div>

@@ -8,7 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { motion, useInView } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 
 interface Props {
@@ -18,15 +18,15 @@ interface Props {
 interface Person {
   name: string;
   title: string;
-  headshot: string;
+  image_url: string;
   category: string[];
 }
 
 const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "0px 0px -50px 0px" });
+  const ref = useRef<HTMLDivElement | null>(null);
   const [peopleData, setPeopleData] = useState<Person[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const controls = useAnimation();
 
   useEffect(() => {
     const fetchPeople = async () => {
@@ -57,8 +57,51 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
             .includes(activeCategory.toLowerCase())
         );
 
+  useEffect(() => {
+    if (!isLoading && ref.current && filteredPeople.length > 0) {
+      const timeout = setTimeout(() => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                controls.start((i) => ({
+                  opacity: 1,
+                  y: 0,
+                  transition: { duration: 0.4, delay: i * 0.2 },
+                }));
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        const elements = ref.current!.querySelectorAll(".carousel-item");
+        elements.forEach((el) => observer.observe(el));
+
+        return () => observer.disconnect();
+      }, 650);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [isLoading, filteredPeople, controls]);
+
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="h-5/6 flex flex-col">
+        <Carousel className="w-full h-full flex">
+          <CarouselContent className="-ml-4 h-full">
+            {[...Array(3)].map((_, index) => (
+              <CarouselItem
+                key={index}
+                className="h-full carousel-item lg:basis-1/2 xl:basis-1/3"
+              >
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
+    );
   }
 
   return (
@@ -68,21 +111,21 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
           {filteredPeople.map((person: Person, index: number) => (
             <CarouselItem
               key={index}
-              className={`h-full ${
+              className={`h-full carousel-item ${
                 filteredPeople.length === 1
                   ? "basis-full"
                   : "lg:basis-1/2 xl:basis-1/3"
               }`}
             >
               <motion.div
+                custom={index}
                 initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.2 }}
-                className="w-full flex flex-col"
+                animate={controls}
+                className="w-full flex flex-col text-black"
               >
                 <div className="xl:h-full overflow-hidden mb-4 rounded-xl shadow">
                   <img
-                    src={person.headshot}
+                    src={person.image_url}
                     alt={person.name}
                     className="w-full h-full object-cover rounded-xl filter grayscale hover:grayscale-0 transition-all duration-300"
                   />
