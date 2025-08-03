@@ -95,8 +95,7 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
               <CarouselItem
                 key={index}
                 className="h-full carousel-item lg:basis-1/2 xl:basis-1/3"
-              >
-              </CarouselItem>
+              ></CarouselItem>
             ))}
           </CarouselContent>
         </Carousel>
@@ -123,7 +122,7 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
                 animate={controls}
                 className="w-full flex flex-col text-black"
               >
-                <div className="xl:h-full overflow-hidden mb-4 rounded-xl shadow">
+                <div className="h-full overflow-hidden mt-4 md:mt-0 mb-4 rounded-xl shadow">
                   <img
                     src={person.image_url}
                     alt={person.name}
@@ -141,8 +140,8 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
           ))}
         </CarouselContent>
 
-        <CarouselPrevious className="hover:cursor-pointer hover:bg-black hover:text-white" />
-        <CarouselNext className="hover:cursor-pointer hover:bg-black hover:text-white" />
+        <CarouselPrevious className="hidden md:flex hover:cursor-pointer hover:bg-black hover:text-white" />
+        <CarouselNext className="hidden md:flex hover:cursor-pointer hover:bg-black hover:text-white" />
       </Carousel>
     </div>
   );
