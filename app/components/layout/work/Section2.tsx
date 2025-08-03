@@ -21,7 +21,7 @@ const Section2 = () => {
         </div>
         <div className="w-full">
           <video
-            src="/pretti-vid.MP4"
+            src="https://pub-bafba8bc960643568753b76423dd6724.r2.dev/5f3a0832-5d94-4614-9dbd-323e75b75072-bottom-vid.mp4"
             className="w-full max-w-full h-auto object-contain px-0 md:pr-10"
             autoPlay
             preload="auto"
@@ -30,8 +30,8 @@ const Section2 = () => {
           />
         </div>
       </div>
-      <div className="w-full md:w-1/2 h-full flex flex-col pb-8 md:py-44 px-0 md:pl-8">
-        <p className="text-3xl md:text-5xl xl:text-7xl mr-4 md:mr-8 mb-4 font-extralight">
+      <div className="w-full md:w-1/2 h-full flex flex-col pb-8 md:py-44 md:mb-14 px-0 md:pl-8">
+        <p className="text-3xl md:text-5xl xl:text-7xl mr-4 md:mr-8 mb-4 md:mb-8 font-extralight">
           What we do & why we do it...
         </p>
         <p className="text-lg md:text-xl xl:text-3xl italic font-extralight mb-2">
