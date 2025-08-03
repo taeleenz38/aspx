@@ -18,7 +18,7 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname: string = usePathname();
 
-  // Close on outside click and manage body scroll
+  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -28,31 +28,28 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
 
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
-      document.body.classList.add("menu-open");
-    } else {
-      document.body.classList.remove("menu-open");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.classList.remove("menu-open");
     };
   }, [open]);
 
   const menuVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, visibility: "hidden" },
     visible: {
       opacity: 1,
-      transition: { duration: 0.3 },
+      visibility: "visible",
+      transition: { duration: 0.2, ease: "easeOut" },
     },
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, y: -20 },
+    hidden: { opacity: 0, y: -10 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.3 },
+      transition: { duration: 0.2, ease: "easeOut" },
     },
   };
 
@@ -85,14 +82,11 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
       </button>
 
       <motion.div
-        className={`${
-          open
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        } fixed inset-0 bg-primary bg-opacity-90 flex flex-col items-center justify-center z-[60] transition-opacity duration-200 md:absolute md:top-0 md:right-0 md:mt-4 md:bg-transparent md:via-white md:to-white md:rounded-l-xl md:border-r-[3px] md:px-3 md:pb-3 md:inset-auto`}
+        className={`fixed inset-0 bg-primary bg-opacity-90 flex flex-col items-center justify-center z-[60] md:absolute md:top-0 md:right-0 md:mt-4 md:bg-transparent md:via-white md:to-white md:rounded-l-xl md:border-r-[3px] md:px-3 md:pb-3 md:inset-auto`}
         variants={menuVariants}
         initial="hidden"
         animate={open ? "visible" : "hidden"}
+        style={{ pointerEvents: open ? 'auto' : 'none' }}
       >
         <button
           className="absolute top-4 right-4 text-white text-2xl md:hidden"

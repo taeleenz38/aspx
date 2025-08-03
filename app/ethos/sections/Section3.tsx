@@ -22,7 +22,7 @@ const Section3 = () => {
   );
 
   return (
-    <div className="min-h-screen text-black flex flex-col justify-center pt-36 pb-14">
+    <div className="h-dvh md:min-h-screen text-black flex flex-col justify-center pt-36 pb-14">
       <h1
         ref={containerRef}
         className="text-3xl md:text-5xl lg:text-7xl text-right font-extralight"
