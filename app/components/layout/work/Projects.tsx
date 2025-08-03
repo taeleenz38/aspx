@@ -66,7 +66,9 @@ const ProjectItem = ({
     </div>
 
     <div className="order-1 sm:order-2 w-full sm:w-1/2 flex flex-col gap-2 sm:pr-10 pr-4 pl-4 sm:pl-0">
-      <h2 className="text-md md:text-3xl font-medium m-0 leading-none">{title}</h2>
+      <h2 className="text-md md:text-3xl font-medium m-0 leading-none">
+        {title}
+      </h2>
       <div className="font-extralight text-sm md:text-xl flex flex-col gap-2">
         {Array.isArray(description) ? (
           description.map((line, idx) => <p key={idx}>{line}</p>)
@@ -115,7 +117,11 @@ const Projects = ({
       ? projectData
       : projectData.filter(
           (project) =>
-            project.category.toLowerCase() === activeCategory.toLowerCase()
+            Array.isArray(project.category) &&
+            project.category.some(
+              (cat: string) =>
+                cat.toLowerCase() === activeCategory.toLowerCase()
+            )
         );
 
   // Sort by year
