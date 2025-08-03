@@ -26,7 +26,7 @@ const Section1: React.FC<Props> = ({ activeCategory, isOpen, setIsOpen }) => {
           </MotionComponent.p>
           {/* Mobile Toggle Button */}
           <button
-            className="md:hidden bg-primary text-white px-4 py-2 rounded-md text-lg hover:bg-opacity-80 transition-colors z-50"
+            className="md:hidden bg-primary text-white px-4 py-2 rounded-md text-lg hover:bg-opacity-80 transition-colors z-30"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? "Close" : "Categories"}

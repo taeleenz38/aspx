@@ -31,11 +31,12 @@ const PeopleSideBar: React.FC<Props> = ({
     <>
       {/* Mobile Overlay */}
       <MotionComponent.div
-        className={`fixed inset-0 bg-primary bg-opacity-90 flex flex-col items-center justify-center z-50 md:hidden ${
-          isOpen ? "block" : "hidden"
-        }`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isOpen ? 1 : 0 }}
+        className="fixed inset-0 bg-primary bg-opacity-90 flex flex-col items-center justify-center z-50 md:hidden"
+        initial={{ opacity: 0, display: "none" }}
+        animate={{ 
+          opacity: isOpen ? 1 : 0,
+          display: isOpen ? "flex" : "none"
+        }}
         transition={{ duration: 0.3 }}
       >
         <button
