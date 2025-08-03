@@ -18,7 +18,7 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
   const menuRef = useRef<HTMLDivElement>(null);
   const pathname: string = usePathname();
 
-  // Close on outside click
+  // Close on outside click and manage body scroll
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -28,10 +28,14 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
 
     if (open) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.classList.add("menu-open");
+    } else {
+      document.body.classList.remove("menu-open");
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.classList.remove("menu-open");
     };
   }, [open]);
 
@@ -61,7 +65,11 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
   return (
     <div className="relative mr-2 md:ml-6 md:mr-3" ref={menuRef}>
       <button
-        onClick={() => setOpen(!open)}
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setOpen(!open);
+        }}
         className="w-12 h-12 md:w-16 md:h-16 flex flex-col justify-between items-center z-[60] hover:cursor-pointer"
         aria-label="Toggle menu"
       >
@@ -88,7 +96,11 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
       >
         <button
           className="absolute top-4 right-4 text-white text-2xl md:hidden"
-          onClick={() => setOpen(false)}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setOpen(false);
+          }}
         >
           ✕
         </button>

@@ -24,10 +24,14 @@ const Section2 = () => {
             src="https://pub-bafba8bc960643568753b76423dd6724.r2.dev/5f3a0832-5d94-4614-9dbd-323e75b75072-bottom-vid.mp4"
             className="w-full max-w-full h-auto object-contain px-0 md:pr-10"
             autoPlay
-            preload="auto"
+            preload="metadata"
             muted
+            playsInline
             controls={false}
             loop
+            tabIndex={-1}
+            onFocus={(e) => e.target.blur()}
+            onDoubleClick={(e) => e.preventDefault()}
           />
         </div>
       </div>

@@ -91,6 +91,24 @@ body {
   font-family: var(--font-primary), serif;
 }
 
+/* Prevent video focus and fullscreen issues */
+video {
+  outline: none !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+video:focus {
+  outline: none !important;
+}
+
+/* Prevent body scroll when hamburger menu is open */
+body.menu-open {
+  overflow: hidden;
+}
+
 .h-screen-minus-28 {
   height: calc(100vh - 7rem);
 }
