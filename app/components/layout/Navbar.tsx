@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 pt-6 pb-8 px-4 md:pt-8 md:pb-14 md:px-8 z-20 flex justify-between text-primary items-center bg-[linear-gradient(to_top,_transparent_0%,_white_23%,_white_100%)]">
+    <div className="fixed top-0 left-0 right-0 pt-6 pb-8 px-4 md:pt-8 md:pb-14 md:px-8 z-50 flex justify-between text-primary items-center bg-[linear-gradient(to_top,_transparent_0%,_white_23%,_white_100%)]">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

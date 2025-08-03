@@ -26,6 +26,7 @@ const Section2 = () => {
             autoPlay
             preload="auto"
             muted
+            controls={false}
             loop
           />
         </div>

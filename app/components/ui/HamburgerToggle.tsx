@@ -62,7 +62,7 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
     <div className="relative mr-2 md:ml-6 md:mr-3" ref={menuRef}>
       <button
         onClick={() => setOpen(!open)}
-        className="w-12 h-12 md:w-16 md:h-16 flex flex-col justify-between items-center z-50 hover:cursor-pointer"
+        className="w-12 h-12 md:w-16 md:h-16 flex flex-col justify-between items-center z-[60] hover:cursor-pointer"
         aria-label="Toggle menu"
       >
         <div
@@ -81,7 +81,7 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
-        } fixed inset-0 bg-primary bg-opacity-90 flex flex-col items-center justify-center z-40 transition-opacity duration-200 md:absolute md:top-0 md:right-0 md:mt-4 md:bg-transparent md:via-white md:to-white md:rounded-l-xl md:border-r-[3px] md:px-3 md:pb-3 md:inset-auto`}
+        } fixed inset-0 bg-primary bg-opacity-90 flex flex-col items-center justify-center z-[60] transition-opacity duration-200 md:absolute md:top-0 md:right-0 md:mt-4 md:bg-transparent md:via-white md:to-white md:rounded-l-xl md:border-r-[3px] md:px-3 md:pb-3 md:inset-auto`}
         variants={menuVariants}
         initial="hidden"
         animate={open ? "visible" : "hidden"}
