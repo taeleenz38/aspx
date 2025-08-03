@@ -80,7 +80,7 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
         elements.forEach((el) => observer.observe(el));
 
         return () => observer.disconnect();
-      }, 650);
+      }, 150);
 
       return () => clearTimeout(timeout);
     }
@@ -88,17 +88,8 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
 
   if (isLoading) {
     return (
-      <div className="h-5/6 flex flex-col">
-        <Carousel className="w-full h-full flex">
-          <CarouselContent className="-ml-4 h-full">
-            {[...Array(3)].map((_, index) => (
-              <CarouselItem
-                key={index}
-                className="h-full carousel-item lg:basis-1/2 xl:basis-1/3"
-              ></CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+      <div className="h-5/6 flex items-center justify-center">
+        <p className="text-lg text-primary font-light">Loading...</p>
       </div>
     );
   }
@@ -122,7 +113,7 @@ const PeopleCarousel: React.FC<Props> = ({ activeCategory }) => {
                 animate={controls}
                 className="w-full flex flex-col text-black"
               >
-                <div className="h-full overflow-hidden mt-4 md:mt-0 mb-4 rounded-xl shadow">
+                <div className="h-full overflow-hidden mb-4 rounded-xl shadow">
                   <img
                     src={person.image_url}
                     alt={person.name}
