@@ -7,7 +7,7 @@ const Section1 = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-white">
       <MotionComponent.p
-        className="text-black text-[5.3rem] font-extralight"
+        className="text-center md:text-left text-black text-4xl md:text-5xl lg:text-[5.3rem] font-extralight"
         initial={{ opacity: 0, x: -100 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true, amount: 0.5 }}
