@@ -102,7 +102,7 @@ const Section8 = () => {
 
       {/* Bottom Paragraph */}
       <motion.div
-        className="font-extralight self-end w-3/4 md:w-full text-2xl md:text-3xl lg:text-4xl text-right"
+        className="font-extralight self-end w-4/5 md:w-full text-2xl md:text-3xl lg:text-4xl text-right"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={fadeInBottom}
