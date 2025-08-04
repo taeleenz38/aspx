@@ -23,7 +23,7 @@ const dustVariant = {
 
 const Section6 = () => {
   return (
-    <div className="h-dvh md:min-h-screen text-black flex flex-col justify-center pt-36 pb-14 overflow-hidden">
+    <div className="h-dvh md:min-h-screen text-black flex flex-col justify-center pt-14 md:pt-36 pb-14 overflow-hidden">
       <div className="text-3xl md:text-5xl lg:text-7xl">
         <motion.h1
           className="font-extralight mb-3"
@@ -47,7 +47,7 @@ const Section6 = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between w-full mt-8 md:mt-24">
-        <div className="text-2xl md:text-3xl lg:text-4xl font-extralight">
+        <div className="text-xl md:text-3xl lg:text-4xl font-extralight">
           <p>Our capital backs your vision. Not the other way around.</p>
           <p className="mt-4 md:mt-8">
             *Explanation of how our contractual structure benefits artists.*

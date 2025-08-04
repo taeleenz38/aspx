@@ -22,7 +22,7 @@ const Section3 = () => {
   );
 
   return (
-    <div className="h-dvh md:min-h-screen text-black flex flex-col justify-center pt-36 pb-14">
+    <div className="h-dvh md:min-h-screen text-black flex flex-col justify-center pt-14 md:pt-36 pb-14">
       <h1
         ref={containerRef}
         className="text-3xl md:text-5xl lg:text-7xl text-right font-extralight"
@@ -46,14 +46,14 @@ const Section3 = () => {
           <div className="w-full">
             <img
               src="/mock-core-values.webp"
-              className="w-4/5 h-auto object-contain mt-4"
+              className="w-3/5 md:w-4/5 h-auto object-contain mt-4"
               alt="Core values"
             />
           </div>
         </div>
 
         {/* Right side */}
-        <div className="w-full md:w-[65%] flex flex-col justify-end text-right text-2xl md:text-3xl lg:text-5xl gap-1 md:gap-3">
+        <div className="w-full md:w-[65%] flex flex-col justify-end text-right text-xl md:text-3xl lg:text-5xl gap-1 md:gap-3">
           {/* Paragraph: Quality over quantity */}
           <m.p
             custom={4}
