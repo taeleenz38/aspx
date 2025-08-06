@@ -5,7 +5,7 @@ import { motion as MotionComponent } from "framer-motion";
 
 const Section4 = () => {
   return (
-    <div className="h-dvh md:min-h-screen text-black  pt-36 pb-14 flex flex-col justify-center items-center">
+    <div className="h-dvh md:min-h-screen text-black pt-24 md:pt-36 pb-14 flex flex-col justify-center items-center">
       <MotionComponent.h1
         className="text-3xl md:text-5xl lg:text-7xl font-extralight text-center"
         initial={{ opacity: 0, y: 50 }}
@@ -18,7 +18,7 @@ const Section4 = () => {
       <img
         src="/mock-ethos-2.png"
         className="w-full md:w-3/4 h-auto object-contain mt-4"
-        alt="Core values" 
+        alt="Core values"
       />
     </div>
   );
