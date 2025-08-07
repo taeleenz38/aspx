@@ -55,7 +55,7 @@ const Section8 = () => {
       className="min-h-dvh md:min-h-screen text-black pt-40 pb-14 flex flex-col justify-between overflow-visible"
     >
       {/* Top Heading */}
-      <div className="font-normal text-5xl md:text-7xl lg:text-9xl flex flex-col">
+      <div className="font-normal text-4xl md:text-7xl lg:text-9xl flex flex-col">
         <div className="flex flex-wrap gap-3 mb-3">
           {line1.map((word, i) => (
             <motion.span
@@ -89,7 +89,7 @@ const Section8 = () => {
       {/* Single smooth fade-in from left to right */}
 
       <motion.h2
-        className="font-extralight text-5xl md:text-6xl lg:text-[5rem] mt-10 v"
+        className="font-extralight text-2xl md:text-6xl lg:text-[5rem] mt-10 v"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={fadeInMiddle}
@@ -102,7 +102,7 @@ const Section8 = () => {
 
       {/* Bottom Paragraph */}
       <motion.div
-        className="font-extralight self-end w-4/5 md:w-full text-2xl md:text-3xl lg:text-4xl text-right"
+        className="font-extralight self-end w-4/5 md:w-full text-lg md:text-3xl lg:text-4xl text-right"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={fadeInBottom}
