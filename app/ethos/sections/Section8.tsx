@@ -55,7 +55,7 @@ const Section8 = () => {
       className="w-full h-dvh md:h-screen text-black pt-24 md:pt-40 pb-14 flex flex-col justify-between overflow-visible"
     >
       {/* Top Heading */}
-      <div className="font-normal text-4xl md:text-7xl lg:text-9xl flex flex-col">
+      <div className="font-normal text-5xl md:text-7xl lg:text-9xl flex flex-col">
         <div className="flex flex-wrap gap-3 mb-3">
           {line1.map((word, i) => (
             <motion.span
@@ -89,7 +89,7 @@ const Section8 = () => {
       {/* Single smooth fade-in from left to right */}
 
       <motion.h2
-        className="font-extralight text-2xl md:text-6xl lg:text-[5rem] mt-10 v"
+        className="font-extralight text-3xl md:text-6xl lg:text-[5rem] mt-10 v"
         initial="hidden"
         animate={isInView ? "visible" : "hidden"}
         variants={fadeInMiddle}
