@@ -52,7 +52,7 @@ const Section8 = () => {
   return (
     <div
       ref={ref}
-      className="min-h-dvh md:min-h-screen text-black pt-24 md:pt-40 pb-14 flex flex-col justify-between overflow-visible"
+      className="w-full h-dvh md:h-screen text-black pt-40 pb-14 flex flex-col justify-between overflow-visible"
     >
       {/* Top Heading */}
       <div className="font-normal text-4xl md:text-7xl lg:text-9xl flex flex-col">
