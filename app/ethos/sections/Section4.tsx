@@ -15,10 +15,14 @@ const Section4 = () => {
       >
         From seed, to self - we help artists grow.
       </MotionComponent.h1>
-      <img
+      <MotionComponent.img
         src="/mock-ethos-2.png"
         className="w-full md:w-3/4 h-auto object-contain mt-4"
         alt="Core values"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.75 }}
       />
     </div>
   );

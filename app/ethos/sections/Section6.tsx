@@ -15,7 +15,7 @@ const dustVariant = {
     filter: "blur(0px)",
     transition: {
       delay: i * 0.2,
-      duration: 0.75,
+      duration: 0.5,
       ease: easeOut,
     },
   }),
@@ -47,12 +47,19 @@ const Section6 = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between w-full mt-8 md:mt-24">
-        <div className="text-md md:text-3xl lg:text-4xl font-extralight">
+        <motion.div
+          className="text-md md:text-3xl lg:text-4xl font-extralight"
+          custom={2}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={dustVariant}
+        >
           <p>Our capital backs your vision. Not the other way around.</p>
           <p className="mt-4 md:mt-8">
             *Explanation of how our contractual structure benefits artists.*
           </p>
-        </div>
+        </motion.div>
         <img
           src="/mock-core-values.png"
           className="w-1/3 h-auto object-contain mt-8 self-center md:self-start"

@@ -32,7 +32,7 @@ const Ethos = () => {
       <section className="snap-start h-dvh flex items-start">
         <Section7 />
       </section>
-      <section className="snap-start min-h-dvh max-h-dvh flex items-start">
+      <section className="snap-start h-dvh flex items-start">
         <Section8 />
       </section>
     </div>
