@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
       </motion.div>
 
       <motion.div
-        className="hidden md:flex items-center gap-18 text-3xl pr-8 font-extralight"
+        className="hidden md:flex items-center gap-18 text-3xl font-extralight"
         variants={containerVariants}
         initial="hidden"
         animate="visible"

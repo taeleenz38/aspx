@@ -60,7 +60,7 @@ const HamburgerToggle: React.FC<HamburgerToggleProps> = ({ links }) => {
   ];
 
   return (
-    <div className="relative mr-2 md:ml-6 md:mr-3" ref={menuRef}>
+    <div className="relative mr-2 md:ml-6 md:mr-0" ref={menuRef}>
       <button
         onClick={(e) => {
           e.preventDefault();
